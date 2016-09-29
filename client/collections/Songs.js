@@ -14,11 +14,12 @@ var Songs = Backbone.Collection.extend({
   fetchSuccess: function(collection, response) {
 
     // Figure out what is going on below
+    collection.reset(response.results);
     
-    collection.shift();
-    _.each(response.results, function(song) {
-      collection.push(song);
-    });
+    // collection.shift();
+    // _.each(response.results, function(song) {
+    //   collection.push(song);
+    // });
   },
 
   fetchError: function(collection, response) {
