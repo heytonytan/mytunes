@@ -25,6 +25,17 @@ var AppModel = Backbone.Model.extend({
       // set the updated songQueue array to the app
       this.set('songQueue', currentQueue);
     }, this);
+
+    // params.library.on('ended', function(song) {
+    //   song.dequeue();
+    // }, this);
+
+    // params.library.on('dequeue', function() {
+    //   var currentQueue = this.get('songQueue');
+    //   currentQueue.shift();
+    //   this.set('songQueue', currentQueue);
+    // }, this);
+
   }
 
 });

@@ -1,5 +1,5 @@
 describe('Songs', function() {
-  xdescribe('when fetching song data from Parse', function() {
+  describe('when fetching song data from Parse', function() {
     var songs, fakeSongData, fakeResponse, xhr, requests;
 
     beforeEach(function() {
@@ -35,7 +35,7 @@ describe('Songs', function() {
       expect(requests[0].url).to.include('https://api.parse.com/1/classes/songs');
     });
 
-    it('should populate itself with the data returned from the Parse server', function() {
+    it('should populate itself with the data returned from the Parse server', function() { // hacky solution by unshifting
       songs = new Songs();
       requests[0].respond(200, { 'Content-Type': 'application/json' }, fakeResponse);
       expect(songs).to.have.length(2);
