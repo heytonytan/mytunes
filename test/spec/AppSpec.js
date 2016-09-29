@@ -27,8 +27,11 @@ describe('App', function() {
     expect(app.get('currentSong')).to.equal(app.get('library').at(0));
   });
 
-  xit('queues the next song when an "enqueue" event is fired', function() {
+  it('queues the next song when an "enqueue" event is fired', function() {
+    // console.log('Library: ', app.get('library'));
+    // console.log('Second song: ', app.get('library').at(1));
     app.get('library').at(1).enqueue();
+    console.log('SongQueue', app.get('songQueue'));
     expect(app.get('songQueue').at(0)).to.equal(app.get('library').at(1));
   });
 

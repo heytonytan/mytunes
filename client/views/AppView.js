@@ -16,7 +16,7 @@ var AppView = Backbone.View.extend({
     return this.$el.html([
       this.playerView.$el,
       this.libraryView.$el
-    ]);
+    ]); // html method taking in an array of two elements (???)
   }
 
 });
