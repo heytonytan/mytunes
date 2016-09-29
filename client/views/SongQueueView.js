@@ -6,13 +6,14 @@ var SongQueueView = Backbone.View.extend({
     // to call render whenever the collection has songs added/removed
     // this.on('add', )
 
+
     this.collection.on('add remove', function() {
       this.render();
     }, this);
   },
 
   render: function() {
-    this.$el.empty();
+    this.$el.empty().html('<th>Queue</th>');
     this.collection.forEach(this.renderQueueEntryView, this);
   },
 
