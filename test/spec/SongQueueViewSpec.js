@@ -35,4 +35,13 @@ describe('SongQueueView', function() {
     expect(view.render).to.have.been.called;
   });
 
+  it('displays a message when there are no songs in queue', function() {
+    view.collection.pop();
+    view.collection.pop();
+    view.collection.pop();
+    expect(view.collection.length).to.equal(0);
+    expect(view.$el.children().length).to.equal(2);
+    expect(view.$el.children()[1].innerHTML).to.equal('Queue is currently empty! Click on Library to add more songs.');
+  });
+
 });

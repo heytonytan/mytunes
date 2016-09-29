@@ -13,8 +13,15 @@ var SongQueueView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.empty().html('<th>Queue</th>');
-    this.collection.forEach(this.renderQueueEntryView, this);
+    // if the collection is empty
+    if (!this.collection.length) {
+      // empty the $el and append the table header and div
+      this.$el.empty().html('<th>Queue</th>').append('<div>Queue is currently empty! Click on Library to add more songs.</div>');
+    // else
+    } else {
+      this.$el.empty().html('<th>Queue</th>');
+      this.collection.forEach(this.renderQueueEntryView, this);
+    }
   },
 
   renderQueueEntryView: function(song) {
