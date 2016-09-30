@@ -4,17 +4,19 @@ var Songs = Backbone.Collection.extend({
   model: SongModel,
 
   initialize: function() {
-    this.fetch({
+    $.ajax({
       url: 'https://api.parse.com/1/classes/songs',
-      success: this.fetchSuccess,
+      type: 'GET',
+      success: this.fetchSuccess.bind(this),
       error: this.fetchError
     });
   },
+  
+  fetchSuccess: function(response) {
 
-  fetchSuccess: function(collection, response) {
-
+    // console.log(options);
     // Figure out what is going on below
-    collection.reset(response.results);
+    this.add(response.results);
     
     // collection.shift();
     // _.each(response.results, function(song) {
