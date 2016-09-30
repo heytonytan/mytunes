@@ -14,7 +14,8 @@ var SearchView = Backbone.View.extend({
     var query = $('input:text').val();
     $('input:text').val('');
     console.log('SearchView', this);
-    this.trigger('search', query);
+    this.collection.search(query);
+    // this.trigger('search', query);
   },
 
   initialize: function() {
